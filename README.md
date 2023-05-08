@@ -28,7 +28,13 @@ $ yarn add dingtalk-msg
 ## 初始化
 
 ```js
-const DingTalk = require('dingtalk-msg')
+const DingTalk = require('dingtalk-msg').default
+const dingTalk = new DingTalk('你的群机器人access token')
+```
+
+```js
+// es
+import DingTalk from 'dingtalk-msg'
 const dingTalk = new DingTalk('你的群机器人access token')
 ```
 
