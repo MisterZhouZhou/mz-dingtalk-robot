@@ -1,7 +1,7 @@
 /*
  * @Author: misterzhou
  * @Date: 2022-04-01 10:26:50
- * @LastEditTime: 2023-05-08 17:19:24
+ * @LastEditTime: 2023-05-08 17:38:49
  * @LastEditors: misterzhou
  * @FilePath: /mz-dingtalk-robot/scripts/publish.js
  * @Description: 
@@ -9,12 +9,19 @@
 const path = require('path');
 const shelljs = require('shelljs');
 const { program } = require('commander');
+const fs = require('fs')
 
 const targetFile = path.resolve(__dirname, '../dist/package.json');
-const packagejson = require(targetFile);
-const currentVersion = packagejson.version;
+const packageJson = require(targetFile);
+const currentVersion = packageJson.version;
 const versionArr = currentVersion.split('.');
 const [mainVersion, subVersion, phaseVersion] = versionArr;
+
+// 删除多余配置
+delete packageJson.devDependencies;
+delete packageJson.scripts;
+const newData = JSON.stringify(packageJson, null, 2)
+fs.writeFileSync(targetFile, newData, 'utf8')
 
 // 默认版本号
 const defaultVersion = `${mainVersion}.${subVersion}.${Number(phaseVersion) + 1}`;

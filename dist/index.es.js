@@ -1,4 +1,4 @@
-/* dingtalk-msg version is 1.0.5 commonjs */
+/* dingtalk-msg-send version is 1.0.1 commonjs */
 import request from 'request';
 
 function _classCallCheck(instance, Constructor) {
