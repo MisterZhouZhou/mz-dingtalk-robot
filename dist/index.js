@@ -1,4 +1,4 @@
-/* dingtalk-msg-send version is 1.0.7 commonjs */
+/* dingtalk-msg-send version is 1.0.8 commonjs */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });

@@ -2,6 +2,7 @@ import nodeResolve from '@rollup/plugin-node-resolve'
 import babel from '@rollup/plugin-babel'
 import typescript from 'rollup-plugin-typescript2'
 import { terser } from 'rollup-plugin-terser'
+import rollupCommonjs from '@rollup/plugin-commonjs'
 import { builtinModules } from 'module';
 import pkg from './package.json'
 
@@ -45,6 +46,7 @@ export default {
       extensions: ['.js', '.ts']
     }),
     typescript(),
+    rollupCommonjs(),
     babel({
       babelHelpers: 'bundled',
       exclude: '**/node_modules/**',
