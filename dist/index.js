@@ -1,4 +1,4 @@
-/* dingtalk-msg-send version is 1.0.4 commonjs */
+/* dingtalk-msg-send version is 1.0.7 commonjs */
 'use strict';
 
 Object.defineProperty(exports, '__esModule', { value: true });
@@ -263,5 +263,5 @@ var DingTalk = /*#__PURE__*/function () {
   return DingTalk;
 }();
 
-exports.DingTalk = DingTalk;
+exports["default"] = DingTalk;
 /* email: 16619930394@163.com */

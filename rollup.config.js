@@ -25,14 +25,14 @@ export default {
   input: 'src/index.ts', // 打包入口
   output: [ // 打包输出
     {
-      file: pkg.main, // 输出文件路径
+      file: 'dist/'+pkg.main, // 输出文件路径
       format: 'cjs', // 打包模式
       exports: 'named',
       banner, // 顶部提示
       footer, // 底部提示,
     },
     {
-      file: pkg.module, // 输出文件路径
+      file: 'dist/'+pkg.module, // 输出文件路径
       format: 'esm', // 打包模式
       exports: 'named',
       banner, // 顶部提示
