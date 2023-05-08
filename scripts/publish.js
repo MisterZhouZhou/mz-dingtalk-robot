@@ -1,9 +1,9 @@
 /*
  * @Author: misterzhou
  * @Date: 2022-04-01 10:26:50
- * @LastEditTime: 2022-04-01 10:26:50
+ * @LastEditTime: 2023-05-08 17:19:24
  * @LastEditors: misterzhou
- * @FilePath: /mz-rollup-template/scripts/publish.js
+ * @FilePath: /mz-dingtalk-robot/scripts/publish.js
  * @Description: 
  */
 const path = require('path');
@@ -35,7 +35,7 @@ if (options.versions) {
 }
 
 function publish() {
-  // shelljs.sed('-i', '"name": "ktools"', '"name": "@kagol/ktools"', targetFile); // 修改包名
+  // shelljs.sed('-i', '"name": "dingtalk-msg"', '"name": "@misterzhou/dingtalk-msg"', targetFile); // 修改包名
   shelljs.sed('-i', `"version": "${currentVersion}"`, `"version": "${newVersion}"`, targetFile); // 修改版本号
   shelljs.sed('-i', `"version": "${currentVersion}"`, `"version": "${newVersion}"`, path.resolve(__dirname, '../package.json')); // 同步更新项目中的版本号
   shelljs.cd('dist');
