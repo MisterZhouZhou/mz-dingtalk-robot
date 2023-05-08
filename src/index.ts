@@ -1,5 +1,6 @@
+import DingTalk from './dingtalk';
+
 export {
-  default as DingTalk,
   ISort,
   IText,
   ILinkMsg,
@@ -7,4 +8,6 @@ export {
   IFeedCard,
   IAloneAction,
   IWholeAction,
-} from './dingtalk'
+} from './dingtalk';
+
+export default DingTalk;

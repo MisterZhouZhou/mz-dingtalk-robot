@@ -1,5 +1,13 @@
-/* dingtalk-msg-send version is 1.0.4 commonjs */
-import request from 'request';
+/* dingtalk-msg-send version is 1.0.6 commonjs */
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var request = require('request');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var request__default = /*#__PURE__*/_interopDefaultLegacy(request);
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -179,7 +187,7 @@ var DingTalk = /*#__PURE__*/function () {
     value: function _sendData(msgBody) {
       var _this = this;
       return new Promise(function (resolve) {
-        request({
+        request__default["default"]({
           url: _this.url,
           method: 'post',
           body: JSON.stringify(msgBody),
@@ -255,5 +263,5 @@ var DingTalk = /*#__PURE__*/function () {
   return DingTalk;
 }();
 
-export { DingTalk };
+exports["default"] = DingTalk;
 /* email: 16619930394@163.com */
