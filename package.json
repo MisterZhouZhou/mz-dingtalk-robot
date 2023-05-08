@@ -20,13 +20,17 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "keywords": ["dingtalk", "tools"],
+  "keywords": [
+    "dingtalk",
+    "tools"
+  ],
   "author": "misterzhouzhou <16619930394@163.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
     "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@types/request": "^2.48.8",
     "commander": "^10.0.1",
