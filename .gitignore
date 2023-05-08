@@ -1,5 +1,8 @@
+.vscode/
+.DS_Store
 node_modules
 distidea/
 .vscode/
 .DS_Store
 test
+dist/

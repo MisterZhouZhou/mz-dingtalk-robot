@@ -1,7 +1,7 @@
 /*
  * @Author: misterzhou
  * @Date: 2022-04-01 10:26:50
- * @LastEditTime: 2023-05-08 17:38:49
+ * @LastEditTime: 2023-05-08 18:02:30
  * @LastEditors: misterzhou
  * @FilePath: /mz-dingtalk-robot/scripts/publish.js
  * @Description: 

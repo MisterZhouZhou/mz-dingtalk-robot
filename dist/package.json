@@ -1,13 +1,10 @@
 {
   "name": "dingtalk-msg-send",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com"
@@ -15,7 +12,10 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "keywords": [],
+  "keywords": [
+    "dingtalk",
+    "tools"
+  ],
   "author": "misterzhouzhou <16619930394@163.com>",
   "license": "MIT",
   "dependencies": {

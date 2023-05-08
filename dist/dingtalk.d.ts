@@ -1,4 +1,4 @@
-export declare type ISort = 'vertical' | 'horizontal';
+export type ISort = 'vertical' | 'horizontal';
 interface IAt {
     atAll?: boolean;
     atMobiles?: string[];

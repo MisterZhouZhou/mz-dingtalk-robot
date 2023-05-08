@@ -111,3 +111,6 @@ dingTalk.wholeAction({
   hideAvatar: false,
 })
 ```
+
+## api-extractor
+使用 `api-extractor` 生产统一类型定义配置

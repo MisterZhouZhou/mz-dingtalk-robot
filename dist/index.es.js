@@ -1,4 +1,4 @@
-/* dingtalk-msg-send version is 1.0.1 commonjs */
+/* dingtalk-msg-send version is 1.0.4 commonjs */
 import request from 'request';
 
 function _classCallCheck(instance, Constructor) {
@@ -6,17 +6,15 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-
 function _defineProperties(target, props) {
   for (var i = 0; i < props.length; i++) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
     descriptor.configurable = true;
     if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
+    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
   }
 }
-
 function _createClass(Constructor, protoProps, staticProps) {
   if (protoProps) _defineProperties(Constructor.prototype, protoProps);
   if (staticProps) _defineProperties(Constructor, staticProps);
@@ -25,23 +23,35 @@ function _createClass(Constructor, protoProps, staticProps) {
   });
   return Constructor;
 }
+function _toPrimitive(input, hint) {
+  if (typeof input !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (typeof res !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, "string");
+  return typeof key === "symbol" ? key : String(key);
+}
 
 /**
  * 抛出错误信息
  * @param msg err msg
  */
-
 function inputError(msg) {
   throw new Error(msg);
-} // 获取text body
-
-
+}
+// 获取text body
 function getTextMsgBody(_ref) {
   var text = _ref.text,
-      _ref$atAll = _ref.atAll,
-      atAll = _ref$atAll === void 0 ? false : _ref$atAll,
-      _ref$atMobiles = _ref.atMobiles,
-      atMobiles = _ref$atMobiles === void 0 ? [] : _ref$atMobiles;
+    _ref$atAll = _ref.atAll,
+    atAll = _ref$atAll === void 0 ? false : _ref$atAll,
+    _ref$atMobiles = _ref.atMobiles,
+    atMobiles = _ref$atMobiles === void 0 ? [] : _ref$atMobiles;
   if (!text) inputError('需要传入 text');
   return {
     msgtype: 'text',
@@ -53,14 +63,13 @@ function getTextMsgBody(_ref) {
       isAtAll: atAll
     }
   };
-} // link 消息body
-
-
+}
+// link 消息body
 function getLinkMsgBody(_ref2) {
   var title = _ref2.title,
-      text = _ref2.text,
-      msgUrl = _ref2.msgUrl,
-      picUrl = _ref2.picUrl;
+    text = _ref2.text,
+    msgUrl = _ref2.msgUrl,
+    picUrl = _ref2.picUrl;
   if (!title || !text || !msgUrl) inputError('需要传入 title 和 text 和 msgUrl');
   return {
     msgtype: 'link',
@@ -71,16 +80,15 @@ function getLinkMsgBody(_ref2) {
       messageUrl: msgUrl
     }
   };
-} // markdown 消息body
-
-
+}
+// markdown 消息body
 function getMarkDownMsgBody(_ref3) {
   var title = _ref3.title,
-      mdText = _ref3.mdText,
-      _ref3$atAll = _ref3.atAll,
-      atAll = _ref3$atAll === void 0 ? false : _ref3$atAll,
-      _ref3$atMobiles = _ref3.atMobiles,
-      atMobiles = _ref3$atMobiles === void 0 ? [] : _ref3$atMobiles;
+    mdText = _ref3.mdText,
+    _ref3$atAll = _ref3.atAll,
+    atAll = _ref3$atAll === void 0 ? false : _ref3$atAll,
+    _ref3$atMobiles = _ref3.atMobiles,
+    atMobiles = _ref3$atMobiles === void 0 ? [] : _ref3$atMobiles;
   if (!title || !mdText) inputError('需要传入 title 和 mdText');
   return {
     msgtype: 'markdown',
@@ -93,9 +101,8 @@ function getMarkDownMsgBody(_ref3) {
       isAtAll: atAll
     }
   };
-} // feedCard 消息body
-
-
+}
+// feedCard 消息body
 function getFeedCardMsgBody(_ref4) {
   var links = _ref4.links;
   if (!links.length) inputError('需传入links');
@@ -111,17 +118,16 @@ function getFeedCardMsgBody(_ref4) {
     },
     msgtype: 'feedCard'
   };
-} // aloneAction 消息body
-
-
+}
+// aloneAction 消息body
 function getAloneActionMsgBody(_ref5) {
   var title = _ref5.title,
-      mdText = _ref5.mdText,
-      btns = _ref5.btns,
-      _ref5$sort = _ref5.sort,
-      sort = _ref5$sort === void 0 ? 'vertical' : _ref5$sort,
-      _ref5$hideAvatar = _ref5.hideAvatar,
-      hideAvatar = _ref5$hideAvatar === void 0 ? false : _ref5$hideAvatar;
+    mdText = _ref5.mdText,
+    btns = _ref5.btns,
+    _ref5$sort = _ref5.sort,
+    sort = _ref5$sort === void 0 ? 'vertical' : _ref5$sort,
+    _ref5$hideAvatar = _ref5.hideAvatar,
+    hideAvatar = _ref5$hideAvatar === void 0 ? false : _ref5$hideAvatar;
   if (!title || !mdText || !btns.length) inputError('需要传入 title 和 mdText 和 btns');
   return {
     msgtype: 'actionCard',
@@ -138,18 +144,17 @@ function getAloneActionMsgBody(_ref5) {
       btnOrientation: sort === 'horizontal' ? '1' : '0'
     }
   };
-} // wholeAction 消息body
-
-
+}
+// wholeAction 消息body
 function getWholeActionMsgBody(_ref6) {
   var title = _ref6.title,
-      mdText = _ref6.mdText,
-      singleTitle = _ref6.singleTitle,
-      singleUrl = _ref6.singleUrl,
-      _ref6$sort = _ref6.sort,
-      sort = _ref6$sort === void 0 ? 'vertical' : _ref6$sort,
-      _ref6$hideAvatar = _ref6.hideAvatar,
-      hideAvatar = _ref6$hideAvatar === void 0 ? false : _ref6$hideAvatar;
+    mdText = _ref6.mdText,
+    singleTitle = _ref6.singleTitle,
+    singleUrl = _ref6.singleUrl,
+    _ref6$sort = _ref6.sort,
+    sort = _ref6$sort === void 0 ? 'vertical' : _ref6$sort,
+    _ref6$hideAvatar = _ref6.hideAvatar,
+    hideAvatar = _ref6$hideAvatar === void 0 ? false : _ref6$hideAvatar;
   if (!title || !mdText || !singleTitle || !singleUrl) inputError('需要传入 title 和 mdText 和 singleTitle 和 singleUrl');
   return {
     msgtype: 'actionCard',
@@ -163,20 +168,16 @@ function getWholeActionMsgBody(_ref6) {
     }
   };
 }
-
 var DingTalk = /*#__PURE__*/function () {
   function DingTalk(token) {
     _classCallCheck(this, DingTalk);
-
     this.url = "https://oapi.dingtalk.com/robot/send?access_token=".concat(token);
-  } // 发送消息
-
-
+  }
+  // 发送消息
   _createClass(DingTalk, [{
     key: "_sendData",
     value: function _sendData(msgBody) {
       var _this = this;
-
       return new Promise(function (resolve) {
         request({
           url: _this.url,
@@ -195,7 +196,6 @@ var DingTalk = /*#__PURE__*/function () {
      * @param params { title: string, mdText: string, text: string }
      * @returns Promise
      */
-
   }, {
     key: "text",
     value: function text(params) {
@@ -206,7 +206,6 @@ var DingTalk = /*#__PURE__*/function () {
      * @param param { title: string, text: string, msgUrl: string, picUrl: string }
      * @return Promise
      */
-
   }, {
     key: "link",
     value: function link(params) {
@@ -217,7 +216,6 @@ var DingTalk = /*#__PURE__*/function () {
      * @param param { title: string, mdText: string, msgUrl: string, picUrl: string }
      * @return Promise
      */
-
   }, {
     key: "markDown",
     value: function markDown(params) {
@@ -228,7 +226,6 @@ var DingTalk = /*#__PURE__*/function () {
      * @param param { links: { title: string, msgUrl: string, picUrl: string }]
      * @return Promise
      */
-
   }, {
     key: "feedCard",
     value: function feedCard(params) {
@@ -239,7 +236,6 @@ var DingTalk = /*#__PURE__*/function () {
      * @param param { links: { title: string, mdText: string, btns: { title: string, url: string}, sort: 'vertical' | 'horizontal', hideAvatar: boolean }]
      * @return Promise
      */
-
   }, {
     key: "aloneAction",
     value: function aloneAction(params) {
@@ -250,14 +246,12 @@ var DingTalk = /*#__PURE__*/function () {
      * @param param { links: { title: string, mdText: string, singleTitle: string, singleUrl: string, hideAvatar: boolean }]
      * @return Promise
      */
-
   }, {
     key: "wholeAction",
     value: function wholeAction(params) {
       return this._sendData(getWholeActionMsgBody(params));
     }
   }]);
-
   return DingTalk;
 }();
 
