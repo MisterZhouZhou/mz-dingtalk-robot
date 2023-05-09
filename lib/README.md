@@ -19,22 +19,22 @@
 
 ```shell
 // npm
-$ npm install dingtalk-msg
+$ npm install dingtalk-msg-send
 
 // yarn
-$ yarn add dingtalk-msg
+$ yarn add dingtalk-msg-send
 ```
 
 ## 初始化
 
 ```js
-const DingTalk = require('dingtalk-msg').default
+const DingTalk = require('dingtalk-msg-send').default
 const dingTalk = new DingTalk('你的群机器人access token')
 ```
 
 ```js
 // es
-import DingTalk from 'dingtalk-msg'
+import DingTalk from 'dingtalk-msg-send'
 const dingTalk = new DingTalk('你的群机器人access token')
 ```
 
