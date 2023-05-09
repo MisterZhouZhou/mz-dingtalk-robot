@@ -21,7 +21,7 @@ export default {
   input: 'src/index.ts', // 打包入口
   output: [ // 打包输出
     {
-      file: path.resolve('./lib', pkg.main), // 输出文件路径
+      file: path.resolve('./dist', pkg.main), // 输出文件路径
       format: 'cjs', // 打包模式
       indent: false,
       exports: 'named', // 消除 bundle['default'] to access the default export 警告
@@ -29,7 +29,7 @@ export default {
       footer, // 底部提示,
     },
     {
-      file: path.resolve('./lib', pkg.module), // 输出文件路径
+      file: path.resolve('./dist', pkg.module), // 输出文件路径
       format: 'esm', // 打包模式
       indent: false,
       exports: 'named',

@@ -1,6 +1,6 @@
 {
   "name": "dingtalk-msg-send",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "module": "index.es.js",
@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=development rollup -c",
     "start": "NODE_ENV=development rollup -c -w",
     "build": "NODE_ENV=production rollup -c && yarn copy",
-    "copy": "cp package.json README.md lib",
+    "copy": "cp package.json README.md dist",
     "publish:dist": "yarn build && node scripts/publish.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
